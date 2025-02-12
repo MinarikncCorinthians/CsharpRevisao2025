@@ -1,0 +1,24 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+        string nome;
+
+		Console.WriteLine("Como você se chama?");
+        nome = (Console.ReadLine());
+        
+        Console.WriteLine("Seja bem vindo(a) " + nome);
+        Console.WriteLine("Quantos anos você tem?");;
+       int age = Convert.ToInt32(Console.ReadLine());
+       
+      if (age < 18){
+
+      Console.WriteLine("você é menor de idade");
+}
+      else {
+      Console.WriteLine("você é maior de idade");
+	}
+}
+}
