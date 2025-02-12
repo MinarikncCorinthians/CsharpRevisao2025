@@ -1,0 +1,15 @@
+!) Crie um programa que pergunte ao usuário seu nome e sua idade. Em seguida verifique se a idade é maior ou menor que 18,
+ exiba da seguinte forma: Fulano é maior de 18 e tem XX Anos ou Fulano não é maior de 18 e tem XX Anos.
+
+2)Ler um número inteiro entre 1 e 12 e escrever o mês correspondente.
+ Caso o número seja fora desse intervalo, informar que não existe mês com este número.
+
+3)Faça um programa que peça uma nota, entre zero e dez. Mostre uma mensagem caso o valor seja inválido
+ e continue pedindo até que o usuário informe um valor válido.
+
+4)Faça um programa que imprima na tela os números de 1 a 20, um abaixo do outro. Depois modifique o programa
+ para que ele mostre os números um ao lado do outro.
+
+5)Faça um programa que imprima na tela apenas os números ímpares entre 1 e 50.
+
+6)Faça um programa que receba dois números inteiros e gere os números inteiros que estão no intervalo compreendido por eles.
