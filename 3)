@@ -1,0 +1,63 @@
+int nota;
+Console.WriteLine("De uma nota de 1 a 10");
+nota = Convert.ToInt32(Console.ReadLine());
+
+if (nota == 0)
+{
+    Console.WriteLine("Escreva um número válido");
+}
+
+if (nota == 1)
+{
+    Console.WriteLine("Péssimo");
+}
+
+if (nota == 2)
+{
+    Console.WriteLine("Só pra não ficar com 1");
+}
+
+if (nota == 3)
+{
+    Console.WriteLine("Nossa senhora");
+}
+
+if (nota == 4)
+{
+    Console.WriteLine("Da pra engolir");
+}
+
+if (nota == 5)
+{
+    Console.WriteLine("Na média");
+}
+
+if (nota == 6)
+{
+    Console.WriteLine("Aceitavel");
+}
+
+if (nota == 7)
+{
+    Console.WriteLine("Nada mal");
+}
+
+if (nota == 8)
+{
+    Console.WriteLine("Bom");
+}
+
+if (nota == 9)
+{
+    Console.WriteLine("Otimo");
+}
+
+if (nota == 10)
+{
+    Console.WriteLine("Perfeito!");
+}
+
+if (nota > 10)
+{
+    Console.WriteLine("Escreva um número válido");
+}
