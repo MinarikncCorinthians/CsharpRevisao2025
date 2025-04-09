@@ -1,0 +1,138 @@
+using System;
+
+class Program
+{
+    static char[,] tabuleiro = new char[3, 3];
+    static char jogador = 'X';
+    static char computador = 'O';
+
+    static void Main(string[] args)
+    {
+        InicializarTabuleiro();
+        while (true)
+        {
+            MostrarTabuleiro();
+            JogarUsuario();
+            if (VerificarVencedor(jogador))
+            {
+                MostrarTabuleiro();
+                Console.WriteLine("Você venceu!");
+                break;
+            }
+            if (VerificarEmpate())
+            {
+                MostrarTabuleiro();
+                Console.WriteLine("Empate!");
+                break;
+            }
+
+            JogarComputador();
+            if (VerificarVencedor(computador))
+            {
+                MostrarTabuleiro();
+                Console.WriteLine("O computador venceu!");
+                break;
+            }
+            if (VerificarEmpate())
+            {
+                MostrarTabuleiro();
+                Console.WriteLine("Empate!");
+                break;
+            }
+        }
+    }
+
+    static void InicializarTabuleiro()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                tabuleiro[i, j] = ' ';
+            }
+        }
+    }
+
+    static void MostrarTabuleiro()
+    {
+        Console.Clear();
+        Console.WriteLine("Você joga com o 'X'");
+        Console.WriteLine("Tabuleiro:");
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine(" {0} | {1} | {2} ", tabuleiro[i, 0], tabuleiro[i, 1], tabuleiro[i, 2]);
+            if (i < 2)
+            {
+                Console.WriteLine("---|---|---");
+            }
+        }
+    }
+
+    static void JogarUsuario()
+    {
+        int linha, coluna;
+        while (true)
+        {
+            Console.Write("Digite a linha (0, 1, 2) e a coluna (0, 1, 2) para jogar (ex: 0 1): ");
+            var entrada = Console.ReadLine().Split(' ');
+            linha = int.Parse(entrada[0]);
+            coluna = int.Parse(entrada[1]);
+
+            if (linha >= 0 && linha < 3 && coluna >= 0 && coluna < 3 && tabuleiro[linha, coluna] == ' ')
+            {
+                tabuleiro[linha, coluna] = jogador;
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Movimento inválido. Tente novamente.");
+            }
+        }
+    }
+
+    static void JogarComputador()
+    {
+        Random random = new Random();
+        int linha, coluna;
+        while (true)
+        {
+            linha = random.Next(0, 3);
+            coluna = random.Next(0, 3);
+            if (tabuleiro[linha, coluna] == ' ')
+            {
+                tabuleiro[linha, coluna] = computador;
+                break;
+            }
+        }
+    }
+
+    static bool VerificarVencedor(char simbolo)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if ((tabuleiro[i, 0] == simbolo && tabuleiro[i, 1] == simbolo && tabuleiro[i, 2] == simbolo) ||
+                (tabuleiro[0, i] == simbolo && tabuleiro[1, i] == simbolo && tabuleiro[2, i] == simbolo))
+            {
+                return true;
+            }
+        }
+        if ((tabuleiro[0, 0] == simbolo && tabuleiro[1, 1] == simbolo && tabuleiro[2, 2] == simbolo) ||
+            (tabuleiro[0, 2] == simbolo && tabuleiro[1, 1] == simbolo && tabuleiro[2, 0] == simbolo))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    static bool VerificarEmpate()
+    {
+        foreach (var campo in tabuleiro)
+        {
+            if (campo == ' ')
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
