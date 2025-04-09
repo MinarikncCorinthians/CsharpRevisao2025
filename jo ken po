@@ -1,0 +1,128 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<Jogador> jogadores = new List<Jogador>();
+        string continuar;
+
+        Console.Write("Digite o nome do primeiro jogador: ");
+        string nomeJogador1 = Console.ReadLine();
+        jogadores.Add(new Jogador(nomeJogador1));
+
+        Console.Write("Você deseja jogar contra um computador ou outro jogador? (C para computador, J para jogador): ");
+        string tipoOponente = Console.ReadLine().ToUpper();
+
+        Jogador jogador2;
+        if (tipoOponente == "C")
+        {
+            jogador2 = new Jogador("Computador");
+        }
+        else
+        {
+            Console.Write("Digite o nome do segundo jogador: ");
+            string nomeJogador2 = Console.ReadLine();
+            jogador2 = new Jogador(nomeJogador2);
+        }
+        jogadores.Add(jogador2);
+
+        do
+        {
+            JogarPartida(jogadores[0], jogador2);
+            MostrarRanking(jogadores);
+
+            Console.Write("Deseja jogar novamente? (S para sim, N para não): ");
+            continuar = Console.ReadLine().ToUpper();
+        } while (continuar == "S");
+    }
+
+    static void JogarPartida(Jogador jogador1, Jogador jogador2)
+    {
+        Console.WriteLine($"\n{jogador1.Nome}, escolha: Pedra (P), Papel (A) ou Tesoura (T): ");
+        string escolha1 = Console.ReadLine().ToUpper();
+        Console.Clear();
+
+        string escolha2;
+        if (jogador2.Nome == "Computador")
+        {
+            escolha2 = EscolhaComputador();
+            Console.WriteLine($"O {jogador2.Nome} escolheu: {escolha2}");
+            Console.Clear();
+        }
+        else
+        {
+            Console.WriteLine($"{jogador2.Nome}, escolha: Pedra (P), Papel (A) ou Tesoura (T): ");
+            escolha2 = Console.ReadLine().ToUpper();
+            Console.Clear();
+        }
+
+        DeterminarResultado(jogador1, jogador2, escolha1, escolha2);
+    }
+
+    static string EscolhaComputador()
+    {
+        Random random = new Random();
+        int escolha = random.Next(0, 3);
+        return escolha switch
+        {
+            0 => "P", // Pedra
+            1 => "A", // Papel
+            2 => "T", // Tesoura
+            _ => "P",
+        };
+    }
+
+    static void DeterminarResultado(Jogador jogador1, Jogador jogador2, string escolha1, string escolha2)
+    {
+        if (escolha1 == escolha2)
+        {
+            Console.WriteLine("Empate!");
+            jogador1.Empates++;
+            jogador2.Empates++;
+        }
+        else if ((escolha1 == "P" && escolha2 == "T") || (escolha1 == "A" && escolha2 == "P") || (escolha1 == "T" && escolha2 == "A"))
+        {
+            Console.WriteLine($"{jogador1.Nome} venceu!");
+            jogador1.Vitorias++;
+            jogador2.Derrotas++;
+        }
+        else
+        {
+            Console.WriteLine($"{jogador2.Nome} venceu!");
+            jogador2.Vitorias++;
+            jogador1.Derrotas++;
+        }
+
+        jogador1.OpcaoEscolhida = escolha1;
+        jogador2.OpcaoEscolhida = escolha2;
+    }
+
+    static void MostrarRanking(List<Jogador> jogadores)
+    {
+        Console.WriteLine("\nRanking das Partidas:");
+        foreach (var jogador in jogadores)
+        {
+            Console.WriteLine($"Nome: {jogador.Nome}, Vitórias: {jogador.Vitorias}, Empates: {jogador.Empates}, Derrotas: {jogador.Derrotas}, Última Opção: {jogador.OpcaoEscolhida}");
+        }
+    }
+}
+
+class Jogador
+{
+    public string Nome { get; set; }
+    public int Vitorias { get; set; }
+    public int Empates { get; set; }
+    public int Derrotas { get; set; }
+    public string OpcaoEscolhida { get; set; }
+
+    public Jogador(string nome)
+    {
+        Nome = nome;
+        Vitorias = 0;
+        Empates = 0;
+        Derrotas = 0;
+        OpcaoEscolhida = string.Empty;
+    }
+}
