@@ -1,0 +1,164 @@
+﻿namespace WinFormsApp1
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            button1 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            button4 = new Button();
+            button5 = new Button();
+            label3 = new Label();
+            SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.LightCoral;
+            button1.FlatAppearance.BorderColor = Color.Black;
+            button1.FlatAppearance.MouseDownBackColor = Color.Red;
+            button1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            button1.ForeColor = SystemColors.ButtonHighlight;
+            button1.Location = new Point(510, 322);
+            button1.Name = "button1";
+            button1.Size = new Size(176, 60);
+            button1.TabIndex = 0;
+            button1.Text = "sair";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.SteelBlue;
+            label1.BorderStyle = BorderStyle.Fixed3D;
+            label1.FlatStyle = FlatStyle.Flat;
+            label1.Font = new Font("Segoe UI", 20F);
+            label1.ForeColor = Color.WhiteSmoke;
+            label1.Location = new Point(251, 28);
+            label1.Name = "label1";
+            label1.Size = new Size(256, 39);
+            label1.TabIndex = 1;
+            label1.Text = "Olá Windows Forms";
+            label1.Click += label1_Click_1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.WhiteSmoke;
+            label2.FlatStyle = FlatStyle.Flat;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label2.Location = new Point(219, 135);
+            label2.Name = "label2";
+            label2.Size = new Size(139, 21);
+            label2.TabIndex = 2;
+            label2.Text = "Digite seu nome:";
+            label2.Click += label2_Click_2;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(364, 135);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(163, 23);
+            textBox1.TabIndex = 3;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.SteelBlue;
+            button4.FlatAppearance.BorderColor = Color.Black;
+            button4.FlatAppearance.MouseDownBackColor = Color.Red;
+            button4.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            button4.ForeColor = SystemColors.ButtonHighlight;
+            button4.Location = new Point(291, 322);
+            button4.Name = "button4";
+            button4.Size = new Size(176, 60);
+            button4.TabIndex = 6;
+            button4.Text = "Limpar campos";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.LightCoral;
+            button5.FlatAppearance.BorderColor = Color.Black;
+            button5.FlatAppearance.MouseDownBackColor = Color.Red;
+            button5.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            button5.ForeColor = SystemColors.ButtonHighlight;
+            button5.Location = new Point(68, 322);
+            button5.Name = "button5";
+            button5.Size = new Size(176, 60);
+            button5.TabIndex = 7;
+            button5.Text = "Exibir Saudação";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
+            // label3
+            // 
+            label3.BackColor = Color.WhiteSmoke;
+            label3.BorderStyle = BorderStyle.FixedSingle;
+            label3.FlatStyle = FlatStyle.Popup;
+            label3.Font = new Font("Segoe UI", 17F, FontStyle.Bold);
+            label3.Location = new Point(177, 222);
+            label3.Name = "label3";
+            label3.Size = new Size(415, 34);
+            label3.TabIndex = 8;
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            label3.Click += label3_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(731, 407);
+            Controls.Add(label3);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(textBox1);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(button1);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Button button1;
+        private Label label1;
+        private Label label2;
+        private TextBox textBox1;
+        private Button button4;
+        private Button button5;
+        private Label label3;
+    }
+}
